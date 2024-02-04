@@ -21,7 +21,7 @@ export default function NavBar() {
 					className="flex gap-2"
 					formAction={handleSignOut}
 					disabled={isPending}>
-					Déconnexion{' '}
+					Déconnexion
 					<AiOutlineLoading3Quarters
 						className={cn('animate-spin', { hidden: !isPending })}
 					/>
