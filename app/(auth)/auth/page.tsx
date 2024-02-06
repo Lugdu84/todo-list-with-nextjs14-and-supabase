@@ -20,12 +20,12 @@ export default function AuthPage() {
 	};
 	return (
 		<div className=" h-screen flex flex-col justify-center items-center">
-			<h2>Connexion</h2>
-			<fieldset
-				className="w-full md:w-2/3 lg:w-1/2"
-				disabled={isPending}>
-				<form
-					action={handleSignIn}
+			<h2 className="text-2xl">Connexion</h2>
+			<form
+				action={handleSignIn}
+				className="w-full md:w-2/3 lg:w-1/2">
+				<fieldset
+					disabled={isPending}
 					className="grid grid-cols-1 w-full gap-4">
 					<Input
 						type="email"
@@ -46,8 +46,8 @@ export default function AuthPage() {
 							className={cn('animate-spin', { hidden: !isPending })}
 						/>
 					</Button>
-				</form>
-			</fieldset>
+				</fieldset>
+			</form>
 		</div>
 	);
 }
