@@ -16,6 +16,19 @@ export const signInWithPassword = async (data: FormData) => {
 	redirect('/');
 };
 
+export const signUpWithPassword = async (data: FormData) => {
+	const supabase = createActionServer();
+	const { error } = await supabase.auth.signUp({
+		email: data.get('email') as string,
+		password: data.get('password') as string,
+	});
+
+	if (error) {
+		throw error;
+	}
+	redirect('/auth/confirmation');
+};
+
 export const signOut = async () => {
 	const supabase = createActionServer();
 	await supabase.auth.signOut();
