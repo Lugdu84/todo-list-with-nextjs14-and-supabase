@@ -8,6 +8,13 @@ export async function middleware(request: NextRequest) {
 		},
 	});
 
+	const publicUrls = [
+		'/auth',
+		'/api/auth/confirm',
+		'/auth/confirmation',
+		'/auth/sent-reset-password',
+	];
+
 	const supabase = createServerClient(
 		process.env.NEXT_PUBLIC_SUPABASE_URL!,
 		process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -58,11 +65,7 @@ export async function middleware(request: NextRequest) {
 		data: { user },
 	} = await supabase.auth.getUser();
 
-	if (
-		!user &&
-		!request.nextUrl.pathname.startsWith('/auth') &&
-		request.nextUrl.pathname !== '/api/auth/confirm'
-	) {
+	if (!user) {
 		return NextResponse.redirect(new URL('/auth', request.url));
 	}
 
