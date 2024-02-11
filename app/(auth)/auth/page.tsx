@@ -35,7 +35,7 @@ export default function AuthPage() {
 		signin ? handleSignIn(formData) : handleSignup(formData);
 	};
 	return (
-		<div className=" h-screen flex flex-col justify-center items-center">
+		<div className=" h-screen flex flex-col justify-center items-center gap-4">
 			<h2 className="text-2xl">{signin ? 'Connexion' : 'Inscription'}</h2>
 			<form
 				action={handleSubmit}
@@ -64,8 +64,9 @@ export default function AuthPage() {
 					</Button>
 				</fieldset>
 			</form>
+			<Link href={'/auth/sent-reset-password'}>Mot de passe oublié ?</Link>
 			<Link
-				className="mt-6 hover:underline"
+				className="hover:underline"
 				href={signin ? '/auth?query=signup' : '/auth?query=signin'}>
 				{signin ? 'Pas de compte ?' : 'Déjà un compte ?'}
 			</Link>
