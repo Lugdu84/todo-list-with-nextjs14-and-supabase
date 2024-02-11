@@ -7,6 +7,7 @@ import { sendResetPasswordMail } from '@/lib/auth/actions';
 import { toast } from 'sonner';
 
 export default function SentResetPasswordPage() {
+
 	const [isPending, startTransition] = useTransition();
 
 	const handleSendResetMail = (formData: FormData) => {
@@ -23,7 +24,6 @@ export default function SentResetPasswordPage() {
 				});
 		});
 	};
-
 	return (
 		<div className="p-4">
 			<h1 className="text-2xl">Réinitialisation du mot de passe</h1>

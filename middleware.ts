@@ -15,6 +15,7 @@ export async function middleware(request: NextRequest) {
 		'/auth/sent-reset-password',
 	];
 
+
 	if (publicUrls.includes(request.nextUrl.pathname)) {
 		return response;
 	}
