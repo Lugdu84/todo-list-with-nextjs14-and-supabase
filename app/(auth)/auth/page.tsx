@@ -67,6 +67,11 @@ export default function AuthPage() {
 			<Link href={'/auth/sent-reset-password'}>Mot de passe oublié ?</Link>
 			<Link
 				className="hover:underline"
+				href={'/auth/sent-reset-password'}>
+				Mot de passe oublié ?
+			</Link>
+			<Link
+				className="hover:underline"
 				href={signin ? '/auth?query=signup' : '/auth?query=signin'}>
 				{signin ? 'Pas de compte ?' : 'Déjà un compte ?'}
 			</Link>

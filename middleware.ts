@@ -15,6 +15,11 @@ export async function middleware(request: NextRequest) {
 		'/auth/sent-reset-password',
 	];
 
+
+	if (publicUrls.includes(request.nextUrl.pathname)) {
+		return response;
+	}
+
 	const supabase = createServerClient(
 		process.env.NEXT_PUBLIC_SUPABASE_URL!,
 		process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,

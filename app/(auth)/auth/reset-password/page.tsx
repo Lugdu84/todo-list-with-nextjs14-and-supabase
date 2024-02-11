@@ -2,10 +2,10 @@
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { resetPassword } from '@/lib/auth/actions';
-import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
+import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
+import { resetPassword } from '@/lib/auth/actions';
 
 export default function ResetPasswordPage() {
 	const [isPending, startTransition] = useTransition();
