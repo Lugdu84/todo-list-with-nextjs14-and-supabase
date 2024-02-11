@@ -27,7 +27,9 @@ export default function SendResetMailPage() {
 		<div className="p-4">
 			<h1 className="text-2xl">Réinitialisation du mot de passe</h1>
 			<form action={handleSendResetMail}>
-				<fieldset className="flex flex-col gap-4 mt-4">
+				<fieldset
+					className="flex flex-col gap-4 mt-4"
+					disabled={isPending}>
 					<Input
 						placeholder="votre adresse mail"
 						type="email"
