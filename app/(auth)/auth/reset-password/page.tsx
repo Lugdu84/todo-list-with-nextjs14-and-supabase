@@ -16,6 +16,7 @@ export default function ResetPasswordPage() {
 		const confirmPassword = formData.get('confirm-password') as string;
 		if (password !== confirmPassword) {
 			toast.error('Les mots de passe ne correspondent pas');
+			return;
 		}
 		startTransition(() => {
 			resetPassword(password)
