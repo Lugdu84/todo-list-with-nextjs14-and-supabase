@@ -2,10 +2,10 @@
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useTransition } from 'react';
-import { useRouter } from 'next/navigation';
-import { toast } from 'sonner';
 import { resetPassword } from '@/lib/auth/actions';
+import { useRouter } from 'next/navigation';
+import { useTransition } from 'react';
+import { toast } from 'sonner';
 
 export default function ResetPasswordPage() {
 	const [isPending, startTransition] = useTransition();
@@ -21,12 +21,10 @@ export default function ResetPasswordPage() {
 		startTransition(() => {
 			resetPassword(password)
 				.catch(() => {
-					toast.error(
-						'Une erreur est survenue lors de la modification du mot de passe'
-					);
+					toast.error('Une  erreur est survenue.');
 				})
 				.then(() => {
-					toast.success('Votre mot de passe a été modifié');
+					toast.success('Mot de passe modifié avec succès !');
 					router.replace('/');
 				});
 		});
