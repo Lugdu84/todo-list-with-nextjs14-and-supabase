@@ -10,12 +10,10 @@ export async function middleware(request: NextRequest) {
 
 	const publicUrls = [
 		'/auth',
-		'/api/auth/confirm',
 		'/auth/confirmation',
+		'/api/auth/confirm',
 		'/auth/sent-reset-password',
 	];
-
-
 	if (publicUrls.includes(request.nextUrl.pathname)) {
 		return response;
 	}
