@@ -34,3 +34,22 @@ export const signOut = async () => {
 	await supabase.auth.signOut();
 	redirect('/auth');
 };
+
+export const sentResetPassword = async (email: string) => {
+	const supabase = createActionServer();
+	const { error } = await supabase.auth.resetPasswordForEmail(email);
+
+	if (error) {
+		throw error;
+	}
+};
+
+export const resetPassword = async (password: string) => {
+	const supabase = createActionServer();
+	const { error } = await supabase.auth.updateUser({
+		password,
+	});
+	if (error) {
+		throw error;
+	}
+};
