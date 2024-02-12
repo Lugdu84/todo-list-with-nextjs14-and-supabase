@@ -15,7 +15,7 @@ export default function ResetPasswordPage() {
 		const password = formData.get('password') as string;
 		const confirmPassword = formData.get('confirm-password') as string;
 		if (password !== confirmPassword) {
-			toast.error('Les mots de passent ne correspondent pas');
+			toast.error('Les mots de passe ne correspondent pas');
 			return;
 		}
 		startTransition(() => {
@@ -29,7 +29,6 @@ export default function ResetPasswordPage() {
 				});
 		});
 	};
-
 	return (
 		<div className="h-screen flex flex-col justify-center items-center">
 			<h1>Modifiez votre mot de passe</h1>

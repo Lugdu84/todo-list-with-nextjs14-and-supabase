@@ -14,7 +14,6 @@ export async function middleware(request: NextRequest) {
 		'/api/auth/confirm',
 		'/auth/sent-reset-password',
 	];
-
 	if (publicUrls.includes(request.nextUrl.pathname)) {
 		return response;
 	}

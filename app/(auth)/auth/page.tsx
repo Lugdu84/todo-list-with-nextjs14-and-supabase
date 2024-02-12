@@ -64,6 +64,7 @@ export default function AuthPage() {
 					</Button>
 				</fieldset>
 			</form>
+			<Link href={'/auth/sent-reset-password'}>Mot de passe oublié ?</Link>
 			<Link
 				className="hover:underline"
 				href={'/auth/sent-reset-password'}>
