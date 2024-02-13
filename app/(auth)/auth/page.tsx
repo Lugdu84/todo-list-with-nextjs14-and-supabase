@@ -18,15 +18,19 @@ export default function AuthPage() {
 
 	const handleSignIn = (formData: FormData) => {
 		startTransition(() => {
-			signInWithPassword(formData).catch(() => {
-				setError('Mot de passe ou email incorrect');
+			signInWithPassword(formData).then((error) => {
+				if (error) {
+					setError(error.message);
+				}
 			});
 		});
 	};
 	const handleSignup = (formData: FormData) => {
 		startTransition(() => {
-			signUpWithPassword(formData).catch(() => {
-				setError('Une erreur est survenue. Veuillez réessayer.');
+			signUpWithPassword(formData).then((error) => {
+				if (error) {
+					setError(error.message);
+				}
 			});
 		});
 	};

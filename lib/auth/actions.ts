@@ -11,7 +11,9 @@ export const signInWithPassword = async (data: FormData) => {
 	});
 
 	if (error) {
-		throw error;
+		return {
+			message: error.message,
+		};
 	}
 	redirect('/');
 };
@@ -24,7 +26,9 @@ export const signUpWithPassword = async (data: FormData) => {
 	});
 
 	if (error) {
-		throw error;
+		return {
+			message: error.message,
+		};
 	}
 	redirect('/auth/confirmation');
 };
@@ -40,7 +44,9 @@ export const sentResetPassword = async (email: string) => {
 	const { error } = await supabase.auth.resetPasswordForEmail(email);
 
 	if (error) {
-		throw error;
+		return {
+			message: error.message,
+		};
 	}
 };
 
@@ -49,8 +55,10 @@ export const resetPassword = async (password: string) => {
 	const { error } = await supabase.auth.updateUser({
 		password,
 	});
-  
+
 	if (error) {
-		throw error;
+		return {
+			message: error.message,
+		};
 	}
 };

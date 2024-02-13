@@ -19,14 +19,14 @@ export default function ResetPasswordPage() {
 			return;
 		}
 		startTransition(() => {
-			resetPassword(password)
-				.catch(() => {
-					toast.error('Une  erreur est survenue.');
-				})
-				.then(() => {
-					toast.success('Mot de passe modifié avec succès !');
-					router.replace('/');
-				});
+			resetPassword(password).then((error) => {
+				if (error) {
+					toast.error(error.message);
+					return;
+				}
+				toast.success('Mot de passe modifié avec succès !');
+				router.replace('/');
+			});
 		});
 	};
 	return (
