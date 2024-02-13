@@ -62,3 +62,19 @@ export const resetPassword = async (password: string) => {
 		};
 	}
 };
+
+export const sendMagicLink = async (email: string) => {
+	const supabase = createActionServer();
+	const { error } = await supabase.auth.signInWithOtp({
+		email,
+		options: {
+			shouldCreateUser: false,
+		},
+	});
+
+	if (error) {
+		return {
+			message: error.message,
+		};
+	}
+};
