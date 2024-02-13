@@ -78,6 +78,13 @@ export default function AuthPage() {
 				href={signin ? '/auth?query=signup' : '/auth?query=signin'}>
 				{signin ? 'Pas de compte ?' : 'Déjà un compte ?'}
 			</Link>
+			{signin && (
+				<Link
+					className="hover:underline"
+					href={'/auth/send-magic-link'}>
+					Connexion avec Magic Link
+				</Link>
+			)}
 		</div>
 	);
 }

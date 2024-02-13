@@ -13,6 +13,7 @@ export async function middleware(request: NextRequest) {
 		'/auth/confirmation',
 		'/api/auth/confirm',
 		'/auth/sent-reset-password',
+		'/auth/send-magic-link',
 	];
 	if (publicUrls.includes(request.nextUrl.pathname)) {
 		return response;
