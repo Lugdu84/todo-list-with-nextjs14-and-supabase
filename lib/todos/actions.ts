@@ -24,3 +24,14 @@ export const addTodo = async (name: string) => {
 	}
 	revalidatePath('/');
 };
+
+export const deleteTodo = async (id: number) => {
+	const supabase = createActionServer();
+	const { error } = await supabase.from('todos').delete().match({ id });
+	if (error) {
+		return {
+			message: error.message,
+		};
+	}
+	revalidatePath('/');
+};

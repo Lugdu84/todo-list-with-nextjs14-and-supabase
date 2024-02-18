@@ -1,4 +1,5 @@
 import AddTodoForm from '@/components/add-todo-form';
+import TodoRow from '@/components/todow-row';
 import { getTodos } from '@/lib/todos/get';
 
 export default async function Home() {
@@ -7,9 +8,12 @@ export default async function Home() {
 		<main className="flex min-h-screen flex-col items-center p-24">
 			<h1>Mes todos</h1>
 			<AddTodoForm />
-			<div className="mt-4">
+			<div className="mt-4 w-full md:w-2/3 lg:w-1/2">
 				{todos?.map((todo) => (
-					<div key={todo.id}>{todo.name}</div>
+					<TodoRow
+						key={todo.id}
+						todo={todo}
+					/>
 				))}
 			</div>
 		</main>
