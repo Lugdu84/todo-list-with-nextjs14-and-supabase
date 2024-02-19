@@ -2,17 +2,14 @@
 
 import { deleteTodo } from '@/lib/todos/actions';
 import { cn } from '@/lib/utils';
+import { Todo } from '@/types/todo';
 import { Trash2 } from 'lucide-react';
 import { useTransition } from 'react';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { toast } from 'sonner';
 
 type TodoRowProps = {
-	todo: {
-		id: number;
-		name: string;
-		is_completed: boolean;
-	};
+	todo: Todo;
 };
 
 export default function TodoRow({ todo }: TodoRowProps) {
