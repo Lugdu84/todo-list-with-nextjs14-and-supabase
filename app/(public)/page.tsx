@@ -1,5 +1,5 @@
 import AddTodoForm from '@/components/add-todo-form';
-import TodoRow from '@/components/todow-row';
+import TodoRow from '@/components/todo-row';
 import { getTodos } from '@/lib/todos/get';
 
 export default async function Home() {
