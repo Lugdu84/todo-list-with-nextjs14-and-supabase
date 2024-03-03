@@ -2,12 +2,15 @@
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Separator } from '@/components/ui/separator';
 import { signInWithPassword, signUpWithPassword } from '@/lib/auth/actions';
+import { signInWithGithub } from '@/lib/auth/providers';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import { FaGithub } from 'react-icons/fa';
 
 export default function AuthPage() {
 	const [isPending, startTransition] = useTransition();
@@ -37,6 +40,10 @@ export default function AuthPage() {
 
 	const handleSubmit = (formData: FormData) => {
 		signin ? handleSignIn(formData) : handleSignup(formData);
+	};
+
+	const handleSignInWithGithub = () => {
+		signInWithGithub();
 	};
 	return (
 		<div className=" h-screen flex flex-col justify-center items-center gap-4">
@@ -85,6 +92,12 @@ export default function AuthPage() {
 					Connexion avec Magic Link
 				</Link>
 			)}
+			<Separator className="w-full md:w-2/3 lg:w-1/2" />
+			<Button
+				className="flex gap-2"
+				onClick={handleSignInWithGithub}>
+				Connexion avec Github <FaGithub />
+			</Button>
 		</div>
 	);
 }

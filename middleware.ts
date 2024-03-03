@@ -12,6 +12,7 @@ export async function middleware(request: NextRequest) {
 		'/auth',
 		'/auth/confirmation',
 		'/api/auth/confirm',
+		'/api/auth/callback',
 		'/auth/sent-reset-password',
 		'/auth/send-magic-link',
 	];
