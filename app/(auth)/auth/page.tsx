@@ -4,13 +4,15 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { signInWithPassword, signUpWithPassword } from '@/lib/auth/actions';
-import { signInWithGithub } from '@/lib/auth/providers';
+import { signInWithProvider } from '@/lib/auth/providers';
 import { cn } from '@/lib/utils';
+import { Provider } from '@supabase/supabase-js';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { FaGithub } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 
 export default function AuthPage() {
 	const [isPending, startTransition] = useTransition();
@@ -42,8 +44,8 @@ export default function AuthPage() {
 		signin ? handleSignIn(formData) : handleSignup(formData);
 	};
 
-	const handleSignInWithGithub = () => {
-		signInWithGithub();
+	const handleSignInWithProvider = (provider: Provider) => {
+		signInWithProvider(provider);
 	};
 	return (
 		<div className=" h-screen flex flex-col justify-center items-center gap-4">
@@ -95,8 +97,13 @@ export default function AuthPage() {
 			<Separator className="w-full md:w-2/3 lg:w-1/2" />
 			<Button
 				className="flex gap-2"
-				onClick={handleSignInWithGithub}>
+				onClick={() => handleSignInWithProvider('github')}>
 				Connexion avec Github <FaGithub />
+			</Button>
+			<Button
+				className="flex gap-2"
+				onClick={() => handleSignInWithProvider('google')}>
+				Connexion avec Google <FcGoogle />
 			</Button>
 		</div>
 	);
