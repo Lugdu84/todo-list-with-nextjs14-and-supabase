@@ -1,6 +1,6 @@
 'use server';
 
-import { createActionServer } from '@/lib//supabase/actions';
+import { createActionServer } from '@/lib/supabase/actions';
 import { redirect } from 'next/navigation';
 
 export const signInWithPassword = async (data: FormData) => {
